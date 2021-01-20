@@ -4,26 +4,43 @@ Created on Sun Jan 17 19:52:01 2021
 
 @author: geomc
 """
-import pgn
+# import pgn
+
 # from pgn2bitboard.main import choosePositions
 # from pgn2bitboard.main import winner
 # from pgn2bitboard.main import pgn2fen
 # from pgn2bitboard.main import fen2bitboard
 # from pgn2bitboard.main import pgn2bitboard
-# import chess
-# import numpy as np
+import chess.pgn
+import numpy as np
 
-pgn_text = open('./World Team Championship 2010/Partita-9060.pgn').read()
-pgn_game = pgn.PGNGame()
-# Returns a list of PGNGame
-print (pgn.loads(pgn_text))
-print (pgn.dumps(pgn_game)) # Returns a string with a pgn game
 
-# pgnFile = open('./World Team Championship 2010/Partita-9059.pgn')
-# game = chess.pgn.read_game(pgnFile)
-# bitboards = np.ndarray((0, 773))
+pgnFile = open('./World Team Championship 2010/Partita-9059.pgn')
+game = chess.pgn.read_game(pgnFile)
+
+node = game
+positions = []
+moves = []
+# All positions and moves until the game ends
+while not node.is_end():
+        nextNode = node.variation(0)
+        move = node.board().san(nextNode.move)
+        position = nextNode.board().fen()
+        moves.append(move)
+        positions.append(position)
+        node = nextNode
+
+
+# -----------------------------------------------------------ALtro metodo------------------------------
+bitboards = np.zeros((8, 8))
 # labels = np.ndarray((0, 1))
 # count = 0
+
+# Mosse eseguite Restityuisce le FEN e le posizioni
+# posizioni = pgn2fen(game)
+
+#Permette di leggere le FEN
+# posizioni1 = fen2bitboard()
 
 # while game is not None:
 #         win = winner(game)
