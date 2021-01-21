@@ -8,7 +8,8 @@ Created on Sun Jan 17 19:52:01 2021
 
 def pgn_parser(filename):
     
-    import chess.pgn 
+    import chess.pgn
+    import pandas as pd
     pgn=open(('./World Team Championship 2010/'+ filename),'r')
     
     game = chess.pgn.read_game(pgn)
@@ -20,8 +21,10 @@ def pgn_parser(filename):
         move = node.board().san(nextNode.move)
         moves.append(move)
         node = nextNode
-        
-    return moves
+        list_df = pd.DataFrame(moves)
+        list_df = list_df.rename(columns= {0: 'mosse'} )
+                
+    return list_df
 
 
 
