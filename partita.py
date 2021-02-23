@@ -1,5 +1,4 @@
 
-from enum import Enum
 import scacchiera
 
 """
@@ -22,6 +21,3 @@ class partita():
         pass
 
 
-class color(Enum):
-    BIANCO = 1
-    NERO = 2

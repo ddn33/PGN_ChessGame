@@ -1,5 +1,5 @@
 from abc import ABC
-from Partita import color
+from enum import Enum
 
 class pezzo(ABC):
 
@@ -75,4 +75,7 @@ class regina(pezzo):
 
 
 
+class color(Enum):
+    BIANCO = 1
+    NERO = 2
 

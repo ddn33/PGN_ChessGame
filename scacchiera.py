@@ -1,6 +1,6 @@
 from pezzi import pedone, cavallo, torre, alfiere, king, regina
-import metodi
-from Partita import color
+import sottoprogrammi
+from pezzi import color
 from pgn_parser import pgn, parser
 import numpy as np
 from abc import ABC

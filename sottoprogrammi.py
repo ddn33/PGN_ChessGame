@@ -40,18 +40,42 @@ def get_features_mosse(lista_mosse):
         mossa_feature.append({'pezzo':'0','colore':0,'casa':0,'cattura':False, 'arrocco_corto':False, 'arrocco_lungo':False, 'promozione':False,'pezzo_promozione': None})
     
     
-    "parte 1: identificazione del pezzo da muovere n.b. indici pari bianco, indici dispari nero"
+    "parte 1: identificazione del pezzo da muovere, mosse di arrocco e cattura dei pezzi"
     count = 0
     for mossa in lista_mosse:
         for ch in mossa:
-            if ch.isupper():
+            if ch.isupper() and ch != 'O':
                 mossa_feature[count]['pezzo'] = ch
+                lista_mosse[count] = lista_mosse[count].replace(ch,'')
+            elif ch == 'x':
+                mossa_feature[count]['cattura'] = True
+                lista_mosse[count] = lista_mosse[count].replace(ch,'')
+            elif lista_mosse[count] == 'O-O' :
+                mossa_feature[count]['pezzo'] = 'K'
+                mossa_feature[count]['arrocco_corto'] = True
+            elif lista_mosse[count] == 'O--O' :
+                mossa_feature[count]['pezzo'] = 'K'
+                mossa_feature[count]['arrocco_lungo'] = True              
+        count +=1
+        
+    count = 0
+    for mossa in lista_mosse:
+        if mossa_feature[count]['pezzo'] == '0':
+             mossa_feature[count]['pezzo'] = 'P'
+        count +=1
+        
+    "parte 2: identificazione del colore del pezzo che deve effettuare la mossa"
+    count = 0
+    for mossa in range(len(mossa_feature)):
+        if mossa%2 == 0:
+            mossa_feature[count]['colore'] = 'BIANCO'
+        else:
+            mossa_feature[count]['colore'] = 'NERO'
         count +=1
     
+    "parte 3: identificazione della casa verso la quale deve muoversi il pezzo"
     
-    "parte 2: identificazione della casa verso la quale deve muoversi il pezzo"
-    
-    
+    print(lista_mosse)
     
     return mossa_feature
     
