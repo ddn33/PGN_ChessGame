@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jan 17 19:52:01 2021
-
-@author: geomc
-"""
-
 
 def pgn_parser(filename):
     
@@ -98,11 +91,22 @@ def get_posizione_casa(casa):
 
     return tuple(posizione)
 
-    
-    
-    
-    
-    
 
+def get_casa(posizione):
+    
+    temp = []
+    
+    temp.append(chr(posizione[0]+ord('a')))
+    temp.append(str(posizione[1]+1))
+    
+    return temp[0]+temp[1]
+    
+    
+    
+def is_free(casa,scacchiera):
+    if casa in scacchiera.caselle_occupate:
+         return False
+    else:
+         return True
 
 
