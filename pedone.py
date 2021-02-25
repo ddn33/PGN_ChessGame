@@ -25,23 +25,26 @@ class pedone(pezzo):
         mosse_possibili = []
         casa_attuale = self.scacchiera.get_posizione_casa(self.casa)
         if self.prima_mossa == True:           
-            newposizioni = [(casa_attuale[0],casa_attuale[1]+1),(casa_attuale[0],casa_attuale[1]+2)]
-            mosse_possibili.append(newposizioni)
+            newposizione1 = (casa_attuale[0],casa_attuale[1]+1)
+            newposizione2 = (casa_attuale[0],casa_attuale[1]+2)
+            mosse_possibili.append(newposizione1)
+            mosse_possibili.append(newposizione2)
         else:
             newposizioni = (casa_attuale[0],casa_attuale[1]+1)
             mosse_possibili.append(newposizioni)
         
         if self.scacchiera.is_free_la_casella((casa_attuale[0]+1,casa_attuale[1]+1)) == False:
-            mosse_possibili.append(casa_attuale[0]+1,casa_attuale[1]+1)
+            mosse_possibili.append((casa_attuale[0]+1,casa_attuale[1]+1))
         if self.scacchiera.is_free_la_casella((casa_attuale[0]-1,casa_attuale[1]+1)) == False:
-            mosse_possibili.append(casa_attuale[0]-1,casa_attuale[1]+1)
+            mosse_possibili.append((casa_attuale[0]-1,casa_attuale[1]+1))
         
-        count = 0
-        for pos in mosse_possibili:
-            mosse_possibili[count] = self.scacchiera.get_casa(pos)
-            count +=1
+        print(mosse_possibili)
+        case_possibili = []
+        for i in range(len(mosse_possibili)):
+            case_possibili.append(self.scacchiera.get_casa(tuple(mosse_possibili[i])))
+           
                                               
-        return mosse_possibili
+        return case_possibili
     
     def lista_mosse_possibili_pedone_nero(self,casa):
         mosse_possibili = []
@@ -54,9 +57,9 @@ class pedone(pezzo):
             mosse_possibili.append(newposizioni)
         
         if self.scacchiera.is_free_la_casella((a[0]+1,a[1]+1)) == False:
-            mosse_possibili.append(a[0]+1,a[1]+1)
+            mosse_possibili.append((a[0]+1,a[1]+1))
         if self.scacchiera.is_free_la_casella((a[0]-1,a[1]+1)) == False:
-            mosse_possibili.append(a[0]-1,a[1]+1)
+            mosse_possibili.append((a[0]-1,a[1]+1))
         
         count = 0
         for pos in mosse_possibili:

@@ -31,7 +31,7 @@ class board():
         self.king_bianco = []
         self.regina_nero = []
         self.king_nero = []
-        self.caselle_ocupate = []
+        self.caselle_occupate = []
         for i in range(8):
             self.pedoni_bianco.append(pedone(color.BIANCO.name, self.file[i]+self.rank[1] , self))
 
@@ -69,7 +69,8 @@ class board():
             self.caselle_occupate.append(pezzo.casa)
         
         
-    def is_free_la_casella(self,casa):
+    def is_free_la_casella(self,posizione):
+        casa = self.get_casa(posizione)
         if casa in self.caselle_occupate:
              return False
         else:
@@ -90,11 +91,9 @@ class board():
 
     def get_casa(self,posizione):
     
-        temp = []
+        a = chr(posizione[0]+ord('a'))
+        b = str(posizione[1]+1)
         
-        temp.append(chr(posizione[0]+ord('a')))
-        temp.append(str(posizione[1]+1))
-        
-        return temp[0]+temp[1]
+        return str(a+b)
 
 
