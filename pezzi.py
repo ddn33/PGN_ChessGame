@@ -25,3 +25,8 @@ class color(Enum):
     BIANCO = 1
     NERO = 2
 
+
+
+
+
+

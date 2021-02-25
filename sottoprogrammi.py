@@ -72,41 +72,9 @@ def get_features_mosse(lista_mosse):
     
     return mossa_feature
     
-    
-    
-    
-    
 
 
-def get_posizione_casa(casa):
-    posizione = [0, 0]
-    temp = []
-    for ch in casa:
-        temp.append(ch)
-    file = temp[0]  # Lettera sulla scacchiera (colonna)
-    rank = temp[1]  # Numero sulla scacchiera (fila)
-
-    posizione[0] = ord(file) - ord('a')
-    posizione[1] = int(rank) - 1
-
-    return tuple(posizione)
 
 
-def get_casa(posizione):
-    
-    temp = []
-    
-    temp.append(chr(posizione[0]+ord('a')))
-    temp.append(str(posizione[1]+1))
-    
-    return temp[0]+temp[1]
-    
-    
-    
-def is_free(casa,scacchiera):
-    if casa in scacchiera.caselle_occupate:
-         return False
-    else:
-         return True
 
 
