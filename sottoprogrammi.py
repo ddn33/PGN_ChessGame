@@ -1,3 +1,5 @@
+from mossa import mossa
+
 
 def pgn_parser(filename):
     
@@ -35,8 +37,8 @@ def get_features_mosse(lista_mosse):
     
     "parte 1: identificazione del pezzo da muovere, mosse di arrocco e cattura dei pezzi"
     count = 0
-    for mossa in lista_mosse:
-        for ch in mossa:
+    for m in lista_mosse:
+        for ch in m:
             if ch.isupper() and ch != 'O':
                 mossa_feature[count]['pezzo'] = ch
                 lista_mosse[count] = lista_mosse[count].replace(ch,'')
@@ -52,15 +54,15 @@ def get_features_mosse(lista_mosse):
         count +=1
         
     count = 0
-    for mossa in lista_mosse:
+    for m in lista_mosse:
         if mossa_feature[count]['pezzo'] == '0':
              mossa_feature[count]['pezzo'] = 'P'
         count +=1
         
     "parte 2: identificazione del colore del pezzo che deve effettuare la mossa"
     count = 0
-    for mossa in range(len(mossa_feature)):
-        if mossa%2 == 0:
+    for m in range(len(mossa_feature)):
+        if m%2 == 0:
             mossa_feature[count]['colore'] = 'BIANCO'
         else:
             mossa_feature[count]['colore'] = 'NERO'
@@ -70,7 +72,12 @@ def get_features_mosse(lista_mosse):
     
     print(lista_mosse)
     
-    return mossa_feature
+    
+    mosse = []
+    for m in mossa_feature:
+        mosse.append(mossa(m))
+    
+    return mosse
     
 
 
