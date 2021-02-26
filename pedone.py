@@ -15,6 +15,8 @@ class pedone(pezzo):
         
         if self.colore == color.BIANCO.name:
             mosse_possibili = self.lista_mosse_possibili_pedone_bianco()
+        else:
+            mosse_possibili = self.lista_mosse_possibili_pedone_nero()
         if casa_nuova in mosse_possibili:
             return True
         else:
@@ -46,27 +48,30 @@ class pedone(pezzo):
                                               
         return case_possibili
     
-    def lista_mosse_possibili_pedone_nero(self,casa):
+    def lista_mosse_possibili_pedone_nero(self):
         mosse_possibili = []
-        a = self.scacchiera.get_posizione_casa(self.casa)
+        casa_attuale = self.scacchiera.get_posizione_casa(self.casa)
         if self.prima_mossa == True:           
-            newposizioni = [(a[0],a[1]+1),(a[0],a[1]+2)]
-            mosse_possibili.append(newposizioni)
+            newposizione1 = (casa_attuale[0],casa_attuale[1]-1)
+            newposizione2 = (casa_attuale[0],casa_attuale[1]-2)
+            mosse_possibili.append(newposizione1)
+            mosse_possibili.append(newposizione2)
         else:
-            newposizioni = (a[0],a[1]+1)
+            newposizioni = (casa_attuale[0],casa_attuale[1]-1)
             mosse_possibili.append(newposizioni)
         
-        if self.scacchiera.is_free_la_casella((a[0]+1,a[1]+1)) == False:
-            mosse_possibili.append((a[0]+1,a[1]+1))
-        if self.scacchiera.is_free_la_casella((a[0]-1,a[1]+1)) == False:
-            mosse_possibili.append((a[0]-1,a[1]+1))
+        if self.scacchiera.is_free_la_casella((casa_attuale[0]-1,casa_attuale[1]-1)) == False:
+            mosse_possibili.append((casa_attuale[0]-1,casa_attuale[1]-1))
+        if self.scacchiera.is_free_la_casella((casa_attuale[0]+1,casa_attuale[1]-1)) == False:
+            mosse_possibili.append((casa_attuale[0]+1,casa_attuale[1]-1))
         
-        count = 0
-        for pos in mosse_possibili:
-            mosse_possibili[count] = self.scacchiera.get_casa(pos)
-            count +=1
-        
-        return mosse_possibili
+        print(mosse_possibili)
+        case_possibili = []
+        for i in range(len(mosse_possibili)):
+            case_possibili.append(self.scacchiera.get_casa(tuple(mosse_possibili[i])))
+           
+                                              
+        return case_possibili
         
 
 
