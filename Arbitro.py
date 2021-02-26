@@ -11,14 +11,14 @@ class arbitro():
     def mossa_valida(self,mossa):
         if mossa.colore == color.BIANCO.Name:
                 if mossa.casa in self.scacchiera.caselle_occupate_bianco:
-                    return True
-                else:
                     return False
+                else:
+                    return True
         elif mossa.colore == color.NERO.Name:
                 if mossa.casa in self.scacchiera.caselle_occupate_nero:
-                    return True
-                else:
                     return False
+                else:
+                    return True
     
     def cattura_valida(self,mossa):
         if mossa.colore == color.BIANCO.Name:
