@@ -49,7 +49,7 @@ class board():
         for i in range(8):
             self.pedoni_nero.append(pedone(color.NERO.name, self.file[i]+self.rank[6], self))
 
-        self.cavalli_nero.append(cavallo(color.NERO.name, 'c8', self))
+        self.cavalli_nero.append(cavallo(color.NERO.name, 'b8', self))
         self.torri_nero.append(torre(color.NERO.name, 'a8', self))
         self.alfieri_nero.append(alfiere(color.NERO.name, 'c8', self))
         self.cavalli_nero.append(cavallo(color.NERO.name, 'g8', self))
