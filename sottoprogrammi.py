@@ -32,7 +32,7 @@ def get_features_mosse(lista_mosse):
     "creazione lista delle informazioni necessarie per ogni mossa da effettuare"
     mossa_feature = []
     for i in range(len(lista_mosse)):
-        mossa_feature.append({'pezzo':'0','colore':0,'casa':0,'cattura':False, 'arrocco_corto':False, 'arrocco_lungo':False, 'promozione':False,'pezzo_promozione': None, 'scacco':False})
+        mossa_feature.append({'pezzo':'0','colore':0,'casa':0,'cattura':False, 'arrocco_corto':False, 'arrocco_lungo':False, 'promozione':False,'pezzo_promozione': None, 'scacco':False, 'conflitto':False, 'conflitto_posizione': None})
     
     
     lista_mosse1=lista_mosse[:]
@@ -46,8 +46,7 @@ def get_features_mosse(lista_mosse):
                 mossa_feature[count]['promozione'] = True
                 lista_mosse1[count] = lista_mosse1[count].replace(ch,'')
                 mossa_feature[count]['pezzo_promozione'] = m[i+1]
-                lista_mosse1[count] = lista_mosse1[count].replace(m[i+1],'')
-                
+                lista_mosse1[count] = lista_mosse1[count].replace(m[i+1],'')            
             i +=1        
                 
         count +=1
@@ -95,9 +94,22 @@ def get_features_mosse(lista_mosse):
                 lista_mosse1[count] = lista_mosse1[count].replace(ch,'')
 
         count +=1
+    
+    
+    "parte 5: identificazione dei conflitti"
+    count=0
+    for m in lista_mosse1:
+        if len (m) >= 3 :
+            mossa_feature[count]['conflitto'] = True
+            mossa_feature[count]['conflitto_posizione'] = m[0]
+            lista_mosse1[count] = lista_mosse1[count].replace(m[0],'')
+        count +=1
 
-                    
-
+    "parte 6: identificazione della casa"
+    count=0
+    for m in lista_mosse1:
+            mossa_feature[count]['casa'] = (m)
+            count +=1
     
     
     print(lista_mosse)
