@@ -32,10 +32,11 @@ def get_features_mosse(lista_mosse):
     "creazione lista delle informazioni necessarie per ogni mossa da effettuare"
     mossa_feature = []
     for i in range(len(lista_mosse)):
-        mossa_feature.append({'pezzo':'0','colore':0,'casa':0,'cattura':False, 'arrocco_corto':False, 'arrocco_lungo':False, 'promozione':False,'pezzo_promozione': None})
+        mossa_feature.append({'pezzo':'0','colore':0,'casa':0,'cattura':False, 'arrocco_corto':False, 'arrocco_lungo':False, 'promozione':False,'pezzo_promozione': None, 'scacco':False})
     
     
     lista_mosse1=lista_mosse[:]
+    
     "parte 1: identificazione del pezzo che deve essere promosso"
     count = 0
     for m in lista_mosse1:
@@ -50,8 +51,6 @@ def get_features_mosse(lista_mosse):
             i +=1        
                 
         count +=1
-
-    
  
     "parte 2: identificazione del pezzo da muovere, mosse di arrocco e cattura dei pezzi"
     count = 0
@@ -87,7 +86,18 @@ def get_features_mosse(lista_mosse):
             mossa_feature[count]['colore'] = 'NERO'
         count +=1
     
-                
+    "parte 4: identificazione dello scacco"
+    count=0
+    for m in lista_mosse1:
+        for ch in m:
+            if ch == '+':
+                mossa_feature[count]['scacco'] = True
+                lista_mosse1[count] = lista_mosse1[count].replace(ch,'')
+
+        count +=1
+
+                    
+
     
     
     print(lista_mosse)
