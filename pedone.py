@@ -18,6 +18,7 @@ class pedone(pezzo):
         else:
             mosse_possibili = self.lista_mosse_possibili_pedone_nero(mossa)
         if mossa.casa in mosse_possibili:
+            #self.prima_mossa = False da aggiungere finita la fase di testing
             return True
         else:
             return False
@@ -29,12 +30,13 @@ class pedone(pezzo):
         if mossa.cattura == True:
             mosse_possibili.append((casa_attuale[0]+1,casa_attuale[1]+1)) 
             mosse_possibili.append((casa_attuale[0]-1,casa_attuale[1]+1))
-        elif self.prima_mossa == True:           
+        elif self.prima_mossa == True and self.scacchiera.is_free_la_casella((casa_attuale[0],casa_attuale[1]+1)):           
             newposizione1 = (casa_attuale[0],casa_attuale[1]+1)
-            newposizione2 = (casa_attuale[0],casa_attuale[1]+2)
             mosse_possibili.append(newposizione1)
-            mosse_possibili.append(newposizione2)
-        else:
+            if self.scacchiera.is_free_la_casella((casa_attuale[0],casa_attuale[1]+2)):
+                newposizione2 = (casa_attuale[0],casa_attuale[1]+2)
+                mosse_possibili.append(newposizione2)
+        elif self.scacchiera.is_free_la_casella((casa_attuale[0],casa_attuale[1]+1)):
             newposizioni = (casa_attuale[0],casa_attuale[1]+1)
             mosse_possibili.append(newposizioni)
           
@@ -50,12 +52,13 @@ class pedone(pezzo):
         if mossa.cattura == True:
             mosse_possibili.append((casa_attuale[0]-1,casa_attuale[1]-1))        
             mosse_possibili.append((casa_attuale[0]+1,casa_attuale[1]-1))
-        elif self.prima_mossa == True:           
+        elif self.prima_mossa == True and self.scacchiera.is_free_la_casella((casa_attuale[0],casa_attuale[1]-1)):           
             newposizione1 = (casa_attuale[0],casa_attuale[1]-1)
-            newposizione2 = (casa_attuale[0],casa_attuale[1]-2)
             mosse_possibili.append(newposizione1)
-            mosse_possibili.append(newposizione2)
-        else:
+            if self.scacchiera.is_free_la_casella((casa_attuale[0],casa_attuale[1]-2)):
+                newposizione2 = (casa_attuale[0],casa_attuale[1]-2)
+                mosse_possibili.append(newposizione2)
+        elif self.scacchiera.is_free_la_casella((casa_attuale[0],casa_attuale[1]-1)):
             newposizioni = (casa_attuale[0],casa_attuale[1]-1)
             mosse_possibili.append(newposizioni)
         
