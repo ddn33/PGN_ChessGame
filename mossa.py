@@ -16,7 +16,9 @@ class mossa():
         self.arrocco_lungo = mossa['arrocco_lungo']
         self.promozione = mossa['promozione']
         self.pezzo_promozione = mossa['pezzo_promozione']
+        self.scacco = mossa['scacco']
+        self.conflitto = mossa['conflitto']
+        self.conflitto_posizione = mossa['conflitto_posizione']
         
         
-        
-    
+         

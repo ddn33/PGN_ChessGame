@@ -99,7 +99,7 @@ def get_features_mosse(lista_mosse):
     "parte 5: identificazione dei conflitti"
     count=0
     for m in lista_mosse1:
-        if len (m) >= 3 :
+        if len (m) >= 3 and m != 'O-O' and m != 'O--O' :
             mossa_feature[count]['conflitto'] = True
             mossa_feature[count]['conflitto_posizione'] = m[0]
             lista_mosse1[count] = lista_mosse1[count].replace(m[0],'')
@@ -108,7 +108,7 @@ def get_features_mosse(lista_mosse):
     "parte 6: identificazione della casa"
     count=0
     for m in lista_mosse1:
-            mossa_feature[count]['casa'] = (m)
+            mossa_feature[count]['casa'] = m
             count +=1
     
     
