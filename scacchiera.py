@@ -6,7 +6,7 @@ from alfiere import alfiere
 from king import king
 from regina import regina
 from pezzi import color
-from sottoprogrammi import get_features_mosse
+
 
 """
 Classe instanziamento della scacchiera
@@ -111,12 +111,12 @@ class board():
     "prefissata andando a rimuovere anche i relativi conflitti di posizione"
     def quale_pezzo_si_muove(self,mossa):
         if mossa.conflitto == False:
-                for pezzo in self.scacchiera.pezzi:
+                for pezzo in self.pezzi:
                     if pezzo.nome == mossa.pezzo and pezzo.colore == mossa.colore and pezzo.puoi_andare_in (mossa) == True:
                         pezzo_da_muovere = pezzo
                         
         else:
-                for pezzo in self.scacchiera.pezzi:
+                for pezzo in self.pezzi:
                     if pezzo.nome == mossa.pezzo and pezzo.colore == mossa.colore and pezzo.puoi_andare_in (mossa) == True and mossa.conflitto_posizione in pezzo.casa:
                         pezzo_da_muovere = pezzo
 
