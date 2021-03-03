@@ -31,3 +31,5 @@ class arbitro():
                     return True
                 else:
                     return False
+                
+

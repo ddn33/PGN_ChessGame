@@ -1,12 +1,11 @@
+import numpy as np
 import scacchiera
 from Arbitro import arbitro
 from mossa import mossa
 from pezzi import color
-from pedone import pedone
 from cavallo import cavallo
 from torre import torre
 from alfiere import alfiere
-from king import king
 from regina import regina
 """
 Classe che contiene i comandi utilizzabili dal main per il proseguimento della partita e 
@@ -21,6 +20,7 @@ class partita():
     """
 
     def __init__(self, lista_mosse=[]):
+        self.immagine = np.chararray((8, 8), unicode=True)
         self.scacchiera = scacchiera.board()
         self.lista_mosse = lista_mosse
         self.arbitro = arbitro(self,self.scacchiera)
@@ -30,18 +30,23 @@ class partita():
             mossa.arrocco(self.scacchiera,mossa)
         
         elif mossa.promozione == True:
-            if self.arbitro.mossa_valida(mossa):
-                pezzo_da_muovere = self.scacchiera.quale_pezzo_si_muove(mossa)
-                self.scacchiera.pezzi.remove(pezzo_da_muovere)
+            if mossa.cattura == True:
+                if self.arbitro.cattura_valida(mossa):
+                    self.cattura(mossa)
+                    pezzo_da_muovere = self.scacchiera.quale_pezzo_si_muove(mossa)
+                    self.scacchiera.pezzi.remove(pezzo_da_muovere)
+                    self.crea_pezzo_promozione(mossa)
+                    
+            else:                                  
+                if self.arbitro.mossa_valida(mossa):
+                    pezzo_da_muovere = self.scacchiera.quale_pezzo_si_muove(mossa)
+                    self.scacchiera.pezzi.remove(pezzo_da_muovere)
+                    self.crea_pezzo_promozione(mossa)
         
         elif mossa.cattura == True:
             if self.arbitro.cattura_valida(mossa):
+                self.cattura(mossa)
                 pezzo_da_muovere = self.scacchiera.quale_pezzo_si_muove(mossa)
-                
-                for pezzo in self.scacchiera.pezzi:
-                    if pezzo.casa == mossa.casa:
-                        self.scacchiera.pezzi.remove(pezzo)
-                        # break                
                 pezzo_da_muovere.casa = mossa.casa
                 
             else:
@@ -83,7 +88,19 @@ class partita():
                 self.scacchiera.pezzi.append(alfiere(color.NERO.name, mossa.casa, self.scacchiera))
         
         return
-            
+     
         
+    def cattura(self,mossa):
+        for pezzo in self.scacchiera.pezzi:
+            if pezzo.casa == mossa.casa:
+                self.scacchiera.pezzi.remove(pezzo)    
+        return
+     
+    def get_scacchiera(self):
+        self.immagine = np.chararray((8, 8), unicode=True)
+        for pezzo in self.scacchiera.pezzi:
+            self.immagine[self.scacchiera.get_posizione_casa(pezzo.casa)]= pezzo.simbolo
+        print(self.immagine)
+        return 
 
 

@@ -102,7 +102,7 @@ def get_features_mosse(lista_mosse):
         if len (m) >= 3 and m != 'O-O' and m != 'O--O' :
             mossa_feature[count]['conflitto'] = True
             mossa_feature[count]['conflitto_posizione'] = m[0]
-            lista_mosse1[count] = lista_mosse1[count].replace(m[0],'')
+            lista_mosse1[count] = lista_mosse1[count].replace(m[0],'',1)
         count +=1
 
     "parte 6: identificazione della casa"
