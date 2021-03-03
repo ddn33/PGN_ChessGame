@@ -19,10 +19,17 @@ class partita():
 
     def muovi(self,mossa):
         if mossa.cattura == True:
-            if self.arbitro.cattura_valida(mossa):
-                "MUOVI"
+            if self.arbitro.cattura_valida(mossa) == True:
+                pezzo_da_muovere = self.scacchiera.quale_pezzo_si_muove(mossa)
+                for pezzo in self.scacchiera.pezzi:
+                    if pezzo.casa == mossa.casa:
+                        self.scacchiera.pezzi.remove(pezzo)
+                        # break                
+                pezzo_da_muovere.casa = mossa.casa
+                self.scacchiera.aggiorna_scacchiera()
+                
             else:
-                "MOSSA NON VALIDA"
+                print("MOSSA NON VALIDA")
         else:    
             if self.arbitro.mossa_valida(mossa):
                 "MUOVI"

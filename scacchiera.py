@@ -72,6 +72,9 @@ class board():
             self.caselle_occupate.append(pezzo.casa)
     
     def aggiorna_scacchiera(self):
+        self.caselle_occupate = []
+        self.caselle_occupate_bianco = []
+        self.caselle_occupate_nero = []
         for pezzo in self.pezzi_bianchi:
             self.caselle_occupate_bianco.append(pezzo.casa)
         for pezzo in self.pezzi_neri:
@@ -109,6 +112,7 @@ class board():
     
     "Sottoprogramma che acquisite informazioni sul pezzo e sulla mossa, mi restituisce il pezzo che si muove all'interno della casella"
     "prefissata andando a rimuovere anche i relativi conflitti di posizione"
+    
     def quale_pezzo_si_muove(self,mossa):
         if mossa.conflitto == False:
                 for pezzo in self.pezzi:
@@ -120,7 +124,6 @@ class board():
                     if pezzo.nome == mossa.pezzo and pezzo.colore == mossa.colore and pezzo.puoi_andare_in (mossa) == True and mossa.conflitto_posizione in pezzo.casa:
                         pezzo_da_muovere = pezzo
 
-        
         return pezzo_da_muovere
 
     
