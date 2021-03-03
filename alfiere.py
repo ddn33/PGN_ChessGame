@@ -6,6 +6,7 @@ class alfiere(pezzo):
             self.simbolo = 'A'
         else:
             self.simbolo = 'a'
+        self.nome = 'B'
         super().__init__(colore, casa, scacchiera)
 
     def puoi_andare_in(self,mossa):
