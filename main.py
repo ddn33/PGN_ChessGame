@@ -11,7 +11,10 @@ lista_mosse = pgn_parser(FILENAME)
 p = partita()
 a = get_features_mosse(lista_mosse)
 
-p.scacchiera.pedoni_bianco[2].casa = 'c4'
-p.scacchiera.aggiorna_scacchiera()
-p.muovi(a[0][6])
+def gioca_partita_completa():
+        i = 0
+        for mossa in a[0]:
+            p.muovi(mossa)
+            i = i+1
+            print(i)
     
