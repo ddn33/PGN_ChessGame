@@ -64,23 +64,23 @@ class board():
         self.pezzi_neri = self.pedoni_nero + self.cavalli_nero + self.alfieri_nero + self.torri_nero + self.king_nero + self.regina_nero
         self.pezzi = self.pezzi_bianchi + self.pezzi_neri
         
-        for pezzo in self.pezzi_bianchi:
-            self.caselle_occupate_bianco.append(pezzo.casa)
-        for pezzo in self.pezzi_neri:
-            self.caselle_occupate_nero.append(pezzo.casa)
         for pezzo in self.pezzi:
             self.caselle_occupate.append(pezzo.casa)
+            if pezzo.colore == color.BIANCO.name:
+                self.caselle_occupate_bianco.append(pezzo.casa)
+            else:
+                self.caselle_occupate_nero.append(pezzo.casa)
     
     def aggiorna_scacchiera(self):
         self.caselle_occupate = []
         self.caselle_occupate_bianco = []
         self.caselle_occupate_nero = []
-        for pezzo in self.pezzi_bianchi:
-            self.caselle_occupate_bianco.append(pezzo.casa)
-        for pezzo in self.pezzi_neri:
-            self.caselle_occupate_nero.append(pezzo.casa)
         for pezzo in self.pezzi:
             self.caselle_occupate.append(pezzo.casa)
+            if pezzo.colore == color.BIANCO.name:
+                self.caselle_occupate_bianco.append(pezzo.casa)
+            else:
+                self.caselle_occupate_nero.append(pezzo.casa)
         
     def is_free_la_casella(self,posizione):
         casa = self.get_casa(posizione)
