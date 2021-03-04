@@ -4,8 +4,6 @@ Created on Fri Feb 26 16:49:43 2021
 
 @author: geomc
 """
-from pezzi import color
-
 
 class mossa():
     
@@ -23,25 +21,6 @@ class mossa():
         self.conflitto_posizione = mossa['conflitto_posizione']
         
 
-    def arrocco(self,scacchiera,mossa):
-        
-        if mossa.arrocco_corto:
-            if  mossa.colore == color.BIANCO.name:
-                scacchiera.king_bianco[0].casa = 'g1'
-                scacchiera.torri_bianco[1].casa = 'f1'
-            else:
-                scacchiera.king_nero[0].casa = 'g8'
-                scacchiera.torri_nero[1].casa = 'f8'
-                
-        if mossa.arrocco_lungo:
-            if  mossa.colore == color.BIANCO.name:
-                scacchiera.king_bianco[0].casa = 'c1'
-                scacchiera.torri_bianco[1].casa = 'd1'
-            else:
-                scacchiera.king_nero[0].casa = 'c8'
-                scacchiera.torri_nero[1].casa = 'd8'
-                
-        return 
 
     
                 

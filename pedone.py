@@ -3,7 +3,6 @@ from pezzi import pezzo, color
 
 class pedone(pezzo):
     def __init__(self, colore, casa, scacchiera):
-        self.prima_mossa = True
         if colore == color.BIANCO.name:
             self.simbolo = 'P'
         else:
@@ -18,11 +17,8 @@ class pedone(pezzo):
             mosse_possibili = self.lista_mosse_possibili_pedone_bianco(mossa)
         else:
             mosse_possibili = self.lista_mosse_possibili_pedone_nero(mossa)
-        if mossa.casa in mosse_possibili:
-            #self.prima_mossa = False da aggiungere finita la fase di testing
-            return True
-        else:
-            return False
+        
+        return mossa.casa in mosse_possibili
         
       
     def lista_mosse_possibili_pedone_bianco(self,mossa):

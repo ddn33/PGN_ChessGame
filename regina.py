@@ -14,10 +14,7 @@ class regina(pezzo):
     def puoi_andare_in(self,mossa):
         mosse_possibili = self.lista_mosse_possibili_regina()
         
-        if mossa.casa in mosse_possibili:
-            return True
-        else:
-            return False
+        return mossa.casa in mosse_possibili
 
 
     def lista_mosse_possibili_regina(self):

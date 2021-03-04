@@ -13,10 +13,7 @@ class alfiere(pezzo):
         
         mosse_possibili = self.lista_mosse_possibili_alfiere()
         
-        if mossa.casa in mosse_possibili:
-            return True
-        else:
-            return False
+        return mossa.casa in mosse_possibili
         
     def lista_mosse_possibili_alfiere(self):
         mosse_possibili = []
@@ -79,7 +76,7 @@ class alfiere(pezzo):
         case_possibili = []
         for i in range(len(mosse_possibili)):
             case_possibili.append(self.scacchiera.get_casa(tuple(mosse_possibili[i])))
-        print(case_possibili) 
+        
         
         return case_possibili
 

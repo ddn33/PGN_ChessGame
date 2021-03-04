@@ -123,19 +123,28 @@ class board():
                 for pezzo in self.pezzi:
                     if pezzo.nome == mossa.pezzo and pezzo.colore == mossa.colore and pezzo.puoi_andare_in (mossa) == True and mossa.conflitto_posizione in pezzo.casa:
                         pezzo_da_muovere = pezzo
-
+        pezzo_da_muovere.prima_mossa = False
         return pezzo_da_muovere
 
     
-    def arrocco_corto(self):
-        pass
-    
-    def arrocco_lungo(self):
-        pass
-    
-    def promozione(self):
-        pass
-    
-    
-    
+    def arrocco(self,scacchiera,mossa):
+        
+        if mossa.arrocco_corto:
+            if  mossa.colore == color.BIANCO.name:
+                scacchiera.king_bianco[0].casa = 'g1'
+                scacchiera.torri_bianco[1].casa = 'f1'
+            else:
+                scacchiera.king_nero[0].casa = 'g8'
+                scacchiera.torri_nero[1].casa = 'f8'
+                
+        if mossa.arrocco_lungo:
+            if  mossa.colore == color.BIANCO.name:
+                scacchiera.king_bianco[0].casa = 'c1'
+                scacchiera.torri_bianco[1].casa = 'd1'
+            else:
+                scacchiera.king_nero[0].casa = 'c8'
+                scacchiera.torri_nero[1].casa = 'd8'
+                
+        return 
+
 

@@ -13,10 +13,7 @@ class cavallo(pezzo):
         
         mosse_possibili = self.lista_mosse_possibili_cavallo()
         
-        if mossa.casa in mosse_possibili:
-            return True
-        else:
-            return False
+        return mossa.casa in mosse_possibili
         
         
     def lista_mosse_possibili_cavallo(self):
@@ -42,8 +39,7 @@ class cavallo(pezzo):
             
         case_possibili = []
         for i in range(len(mosse_possibili)):
-            case_possibili.append(self.scacchiera.get_casa(tuple(mosse_possibili[i])))
-        print(case_possibili)     
+            case_possibili.append(self.scacchiera.get_casa(tuple(mosse_possibili[i])))    
                                           
         return case_possibili
             

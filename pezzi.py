@@ -6,6 +6,7 @@ from enum import Enum
 class pezzo(ABC):
 
     def __init__(self, colore, casa, scacchiera):
+        self.prima_mossa = True
         self.colore = colore
         self.casa = casa
         self.scacchiera = scacchiera

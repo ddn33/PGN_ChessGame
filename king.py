@@ -3,7 +3,6 @@ from pezzi import pezzo, color
 class king(pezzo):
     
     def __init__(self, colore, casa, scacchiera):
-        self.prima_mossa = True
         if colore == color.BIANCO.name:
             self.simbolo = 'K'
         else:
