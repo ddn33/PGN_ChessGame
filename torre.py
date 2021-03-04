@@ -2,6 +2,7 @@ from pezzi import pezzo, color
 
 class torre(pezzo):
     def __init__(self, colore, casa, scacchiera):
+        self.prima_mossa = True
         if colore == color.BIANCO.name:
             self.simbolo = 'T'
         else:
@@ -14,6 +15,7 @@ class torre(pezzo):
         mosse_possibili = self.lista_mosse_possibili_torre()
         
         if mossa.casa in mosse_possibili:
+            self.prima_mossa = False
             return True
         else:
             return False
