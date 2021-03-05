@@ -1,17 +1,16 @@
 README:
-PGN_ChessGame
-Program for Chess games simulation (From PGN)
+- PGN_ChessGame, Program for Chess games simulation (From PGN)
 
 TRACCIA:
-Gruppo 4 (Prof. Marcello Esposito Studenti: Camarda Nicola-Di Noto Daniele)
-Realizzare un applicativo che riceva in input il tracciato di una partita di scacchi codificata in formato PGN (Portable Game Notation) e mostri in output la situazione finale dei pezzi sulla scacchiera.
-Estensione: estendere il programma per verificare se il tracciato contiene mosse illegali o impossibili.
+- Gruppo 4 (Prof. Marcello Esposito Studenti: Camarda Nicola-Di Noto Daniele)
+  Realizzare un applicativo che riceva in input il tracciato di una partita di scacchi codificata in formato PGN (Portable Game Notation) e mostri in output la situazione finale dei pezzi sulla scacchiera.
+  Estensione: estendere il programma per verificare se il tracciato contiene mosse illegali o impossibili.
 
-INTRO
-Questa repository fornisce un algoritmo che simula una partita di scacchi in formato PGN.
+INTRO:
+- Questa repository fornisce un algoritmo che simula una partita di scacchi in formato PGN.
 
 PREREQUISITI:
-E' necessario aver installato i seguenti software sulla macchina prima di eseguire l'applicazione:
+- E' necessario aver installato i seguenti software sulla macchina prima di eseguire l'applicazione:
 1. Python 3: https://www.python.org/downloads/
 2. Anaconda: Installerà la maggior parte delle librerie necessarie https://www.anaconda.com/download/
 
@@ -20,21 +19,21 @@ LIBRERIE:
 - Numpy			: Libreria usata per la descrizione delle coordinate della scacchiera.
 
 STRUTTURA DEL FILE:
-|-- Readme.md
-|-- World Team Championship 2010	: Dataset delle partite in formato PGN
-|-- main.py				: Interfaccia per l'utilizzo utente
-|-- alfiere.py				
-|-- cavallo.py				
-|-- king.py				
-|-- pedone.py	
-|-- regina.py				
-|-- Torre.py				
-|-- Arbitro.py				
-|-- mossa.py				
-|-- partita.py				
-|-- pezzi.py					
-|-- scacchiera.py
-|-- sottoprogrammi.py
+- |-- Readme.md
+- |-- World Team Championship 2010	: Dataset delle partite in formato PGN
+- |-- main.py				: Interfaccia per l'utilizzo utente
+- |-- alfiere.py				
+- |-- cavallo.py				
+- |-- king.py				
+- |-- pedone.py	
+- |-- regina.py				
+- |-- Torre.py				
+- |-- Arbitro.py				
+- |-- mossa.py				
+- |-- partita.py				
+- |-- pezzi.py					
+- |-- scacchiera.py
+- |-- sottoprogrammi.py
 
 ISTRUZIONI:
 1. ScaricaRE la repository dal link di GitHub https://github.com/ddn33/PGN_ChessGame
@@ -50,10 +49,10 @@ ISTRUZIONI:
   
 
 OUTPUT:
-L'utente riceverà in output lo stato finale dei pezzi sulla scacchiera.
+- L'utente riceverà in output lo stato finale dei pezzi sulla scacchiera.
 
 ESEMPIO:
-L'esempio che si vuole riportare fa riferimento alla 'Partita-9060':
+- L'esempio che si vuole riportare fa riferimento alla 'Partita-9060':
 
 1. FILENAME = 'Partita-9060.pgn'
 2. Precedere con la compilazione del programma
@@ -71,14 +70,14 @@ L'esempio che si vuole riportare fa riferimento alla 'Partita-9060':
  ['' '' 'P' '' '' '' 'p' '']
 
 LEGENDA:
-lettera maiuscola: pezzo bianco
-lettera minuscola: pezzo nero
-t/T: Torre
-a/A: Alfiere
-c/C: Cavallo
-k/K: Re
-q/Q: Regina
-p/P: Pedone
+- lettera maiuscola: pezzo bianco
+- lettera minuscola: pezzo nero
+- t/T: Torre
+- a/A: Alfiere
+- c/C: Cavallo
+- k/K: Re
+- q/Q: Regina
+- p/P: Pedone
 
 OSSERVAZIONI:
-la parte sinistra della scacchiera indica la zona del giocatore bianco, la parte destra la zona del giocatore nero
+- La parte sinistra della scacchiera indica la zona del giocatore bianco, la parte destra la zona del giocatore nero
