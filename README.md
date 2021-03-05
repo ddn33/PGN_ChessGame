@@ -7,14 +7,17 @@ Progetto finale corso di programmazione (UCBM_Roma)
 
 Realizzare un applicativo che riceva in input il tracciato di una partita di scacchi codificata in formato PGN (Portable Game Notation) e mostri in output la situazione finale dei pezzi sulla scacchiera.
 
-Estensione 1: estendere il programma per verificare se il tracciato contiene mosse illegali o impossibili.
+Estensione: estendere il programma per verificare se il tracciato contiene mosse illegali o impossibili.
 
-Estensione 2: estendere il programma perché riesca a rilevare se la configurazione finale della scacchiera corrisponde
-              ad una situazione di vincita (scacco matto) per il bianco o per il nero (a prescindere dal risultato riportato nel file PGN).
+------------------------------------------------------------
+Guida all'utilizzo:
 
-Suggerimenti:
-- il formato PGN è spiegato al link https://it.wikipedia.org/wiki/Notazione_Portable_Game 
-- esistono un moduli Python per leggere i file PGN
-https://pypi.org/project/pgn-read/
-https://pypi.org/project/pgnparser/
-- procurarsi qualche esempio di file PGN (nei siti indicati ce ne sono almeno un paio)
+Scaricato il repositori dal link di GitHub https://github.com/ddn33/PGN_ChessGame
+
+1 - Aprire il file main
+2 - Digitare il nome della partita da giocare da assegnare a FILENAME
+ (lista delle partite all'interno della cartella World Team Championship 2010)
+3 - dalla console usare il metodo 'gioca_partita_completa()' per effettuare tutte le mosse
+	e vedere lo stato finale della scacchiera
+4 - dalla console usare il metodo 'esegui_fino_alla_mossa_numero(numero)' per esequire la partita selezionata
+	fino alla mossa inserita 

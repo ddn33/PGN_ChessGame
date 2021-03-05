@@ -1,7 +1,6 @@
 import numpy as np
 import scacchiera
 from Arbitro import arbitro
-from mossa import mossa
 from pezzi import color
 from cavallo import cavallo
 from torre import torre
@@ -27,7 +26,7 @@ class partita():
 
     def muovi(self,mossa):
         if mossa.arrocco_corto == True or mossa.arrocco_lungo == True:
-            mossa.arrocco(self.scacchiera,mossa)
+            self.scacchiera.arrocco(self.scacchiera,mossa)
         
         elif mossa.promozione == True:
             if mossa.cattura == True:
@@ -61,8 +60,7 @@ class partita():
         self.scacchiera.aggiorna_scacchiera()
         
         return
-    
-    
+      
     "Metodo che crea il nuovo pezzo da promuovere" 
     def crea_pezzo_promozione(self,mossa):
         
@@ -88,8 +86,7 @@ class partita():
                 self.scacchiera.pezzi.append(alfiere(color.NERO.name, mossa.casa, self.scacchiera))
         
         return
-     
-        
+          
     def cattura(self,mossa):
         for pezzo in self.scacchiera.pezzi:
             if pezzo.casa == mossa.casa:
@@ -102,5 +99,4 @@ class partita():
             self.immagine[self.scacchiera.get_posizione_casa(pezzo.casa)]= pezzo.simbolo
         print(self.immagine)
         return 
-
 
