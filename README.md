@@ -36,9 +36,9 @@ STRUTTURA DEL FILE:
 - |-- sottoprogrammi.py
 
 ISTRUZIONI:
-1. ScaricaRE la repository dal link di GitHub https://github.com/ddn33/PGN_ChessGame
+1. Scaricare la repository dal link di GitHub https://github.com/ddn33/PGN_ChessGame
 
-2. Aprire il file Main.py con ambiente di sviluppo python.
+2. Aprire il file Main.py
 
 3. Inserire il nome della partita da assegnare a FILENAME. La lista delle partite si trova all'interno della cartella World Team Championship 2010.
    (Esempio: FILENAME='Partita-9060.pgn')	
@@ -79,5 +79,4 @@ LEGENDA:
 - q/Q: Regina
 - p/P: Pedone
 
-OSSERVAZIONI:
 - La parte sinistra della scacchiera indica la zona del giocatore bianco, la parte destra la zona del giocatore nero
